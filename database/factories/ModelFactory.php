@@ -1,8 +1,5 @@
 <?php
 
-//require_once 'App\VehicleBrandProvider.php';
-//require_once 'App\VehicleModelProvider.php';
-
 /*
 |--------------------------------------------------------------------------
 | Model Factories
@@ -31,8 +28,11 @@ $factory->define(App\Vehicle::class, function (Faker\Generator $faker) {
     $faker->addProvider(new Faker\Provider\VehicleBrandProvider($faker));
     $faker->addProvider(new Faker\Provider\VehicleModelProvider($faker));
     $brandi = $faker->brand;
+
+//    $manufacturer_id = \App\Manufacturer::where('name', '=', $brandi)->select('id')->get();
+    $manufacturer_id = \App\Manufacturer::vehicle()->where('name', '=', $brandi)->select('id')->get();
     return [
-        'manufacturer_id' => $brandi,
+        'manufacturer_id' => $manufacturer_id->id,
         'model' => $faker->modelveh($brandi),
     ];
 });
