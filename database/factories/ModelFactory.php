@@ -11,6 +11,7 @@
 |
 */
 
+/* Factory User */
 $factory->define(App\User::class, function (Faker\Generator $faker) {
     $faker = Faker\Factory::create('es_ES');  // Init Faker in spanish mode
     return [
@@ -23,16 +24,16 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     ];
 });
 
+/* Factory Vehicle */
 $factory->define(App\Vehicle::class, function (Faker\Generator $faker) {
     $faker = new Faker\Generator();
     $faker->addProvider(new Faker\Provider\VehicleBrandProvider($faker));
     $faker->addProvider(new Faker\Provider\VehicleModelProvider($faker));
     $brandi = $faker->brand;
 
-//    $manufacturer_id = \App\Manufacturer::where('name', '=', $brandi)->select('id')->get();
-    $manufacturer_id = \App\Manufacturer::vehicle()->where('name', '=', $brandi)->select('id')->get();
+    $manufacturer_id = DB::select("SELECT id FROM manufacturers where name = '".$brandi."'");
     return [
-        'manufacturer_id' => $manufacturer_id->id,
+        'manufacturer_id' => $manufacturer_id[0]->id,
         'model' => $faker->modelveh($brandi),
     ];
 });

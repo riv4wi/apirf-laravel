@@ -15,6 +15,6 @@ class Manufacturer extends Model
     // Relationship: 1 Manufacturer hasMany N Vehicles
     public function vehicle()
     {
-        $this->hasMany('\App\Vehicle');
+        return $this->hasMany(Vehicle::class);
     }
 }
