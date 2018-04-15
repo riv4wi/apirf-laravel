@@ -16,7 +16,8 @@ class VehicleBrandProvider extends \Faker\Provider\Base {
                                     'Honda',
                                     'Chrysler',
                                     'Nissan',
-                                    'Peugeot'
+                                    'Peugeot',
+                                    'Citroën',
                                   );
 
   public function brand(){
