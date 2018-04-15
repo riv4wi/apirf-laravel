@@ -17,11 +17,12 @@ class VehicleController extends Controller
      */
     public function index($manufacturer_id)
     {
-        $vehicles = DB::select("SELECT * FROM vehicles where manufacturer_id = '".$manufacturer_id."'");
 
-        // @todo It is not working in this way
+        $vehicles = DB::select("SELECT * FROM vehicles where manufacturer_id = '" . $manufacturer_id . "'");
+
+        //  Other way, with collection, but slower >>>
         //  $manufacturer = Manufacturer::find($manufacturer_id);
-        //  $vehicles = $manufacturer->vehicles;
+        //  $vehicles = $manufacturer->vehicle;
 
         if ($vehicles)
             return response()->json(['data' => $vehicles], 200);
@@ -69,10 +70,7 @@ class VehicleController extends Controller
      */
     public function show($manufacturer_id, $vehicle_id)
     {
-        $vehicle = Vehicle::where('manufacturer_id', '=', $manufacturer_id)
-            ->where('id', '=', $vehicle_id)
-            ->limit(1)
-            ->get();
+        $vehicle = Vehicle::where('manufacturer_id', $manufacturer_id)->get();
 
         if ($vehicle)
             return response()->json(['data' => $vehicle], 200);
@@ -136,9 +134,8 @@ class VehicleController extends Controller
                 $vehicle->save();
                 return response()->json(['msg' => 'Vehicle ' . $vehicle_id . ' of manufacturer ' . $manufacturer_id .
                     ' edited with PATCH'], 200);
-            }
-            else{
-                return response()->json(['msg' =>'There wasn\'t changes']);
+            } else {
+                return response()->json(['msg' => 'There wasn\'t changes']);
             }
         }
 

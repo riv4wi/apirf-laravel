@@ -19,10 +19,8 @@ class ManufacturerController extends Controller
      */
     public function index()
     {
-        return response()->json(['data' => Manufacturer::all()], 200);
-        // @todo Porque no me funciona esto?
-        // $manufacturers = DB::select("SELECT * FROM manufacturers);
-        // return response()->json(['data' => $manufacturers], 200);
+        // Other way, with collection, but slower >>> return response()->json(['data' => Manufacturer::all()], 200);
+         return response()->json(['data' =>  DB::select("SELECT * FROM manufacturers")], 200);
     }
 
     /**
@@ -116,10 +114,7 @@ class ManufacturerController extends Controller
             return response()->json(['msg' => 'Manufacturer ' . $id . ' not found'], 404);
         }
 
-        // @todo It is not working in this way
-        // $manufacturer = Manufacturer::find($manufacturer_id);
-        // $vehicles = $manufacturer->vehicles;
-
+        // Other way, with collection, but slower >>> $vehicles = $manufacturer->vehicle;
         $vehicles = DB::select("SELECT id FROM vehicles where manufacturer_id = '".$id."'");
         if (sizeof($vehicles) > 0) {
             return response()->json(['msg' => 'The manufacturer can not be eliminated because it has associated vehicles.
