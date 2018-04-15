@@ -2,15 +2,15 @@
   <option name="biscuits">
     <list>
       <Biscuit>
-        <option name="date" value="1523768876000" />
+        <option name="date" value="1523768253000" />
         <option name="domain" value="apirestful.lar" />
         <option name="name" value="laravel_session" />
         <option name="path" value="/" />
-        <option name="value" value="eyJpdiI6InAxQ1Y5QVYyNzFMMDJKaDJHRTNKOEE9PSIsInZhbHVlIjoia1A1ZkRQUGtxZFwvUU9kTG9pbUNMS0RiV2lsd0t3Z2E5SEZFS2xvMnlMU09jQlNGbW8xa2piT0VXZVJsYTF6YmY3eTZia0pBbWtycUlibHowUExuZlVnPT0iLCJtYWMiOiJhYWJiYzg2YTBkYTZlYTA5MDEzNDczMDc2ZjUzNmNkMWNlMGM4MTg1MTRiZjFjMmIzMjhjMWJiM2Y3ODg2ZmIyIn0%3D" />
+        <option name="value" value="eyJpdiI6IkpsQlRhbmxtOWVMd3RkVlhWN3d3NlE9PSIsInZhbHVlIjoiTis5K0NaakFaY1lMM1Ntc2lrYnFTbzBKZlNLOW52Q1laWENlQWZuS0U4Zjg2RjVaU2tJRlwvSjdHK0MyZ3E5bE9XZFhueVFWR1hBOVJHSVA3ZGZucFdBPT0iLCJtYWMiOiJiMGYyZTI1YjAyNTgxZTQ1NzIwNGNlMDUyNmE2NjUzOGY3ZDMzZTY4ODNjM2RjYWUwOGU5ODdkMzBjYjExNmZmIn0%3D" />
       </Biscuit>
     </list>
   </option>
-  <option name="httpMethod" value="GET" />
+  <option name="httpMethod" value="POST" />
   <option name="urlBase" value="http://apirestful.lar" />
   <option name="urlPath" value="/manufacturers" />
   <option name="headers">
@@ -23,10 +23,23 @@
         <option name="key" value="Cache-Control" />
         <option name="value" value="no-cache" />
       </KeyValuePair>
+      <KeyValuePair>
+        <option name="key" value="Content-Type" />
+        <option name="value" value="application/x-www-form-urlencoded" />
+      </KeyValuePair>
     </list>
   </option>
   <option name="parameters">
-    <list />
+    <list>
+      <KeyValuePair>
+        <option name="key" value="name" />
+        <option name="value" value="Chery" />
+      </KeyValuePair>
+      <KeyValuePair>
+        <option name="key" value="website" />
+        <option name="value" value="chery.com" />
+      </KeyValuePair>
+    </list>
   </option>
   <option name="parametersEnabled" value="true" />
   <option name="haveTextToSend" value="false" />

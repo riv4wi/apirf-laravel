@@ -2,17 +2,17 @@
   <option name="biscuits">
     <list>
       <Biscuit>
-        <option name="date" value="1523768876000" />
+        <option name="date" value="1523768759000" />
         <option name="domain" value="apirestful.lar" />
         <option name="name" value="laravel_session" />
         <option name="path" value="/" />
-        <option name="value" value="eyJpdiI6InAxQ1Y5QVYyNzFMMDJKaDJHRTNKOEE9PSIsInZhbHVlIjoia1A1ZkRQUGtxZFwvUU9kTG9pbUNMS0RiV2lsd0t3Z2E5SEZFS2xvMnlMU09jQlNGbW8xa2piT0VXZVJsYTF6YmY3eTZia0pBbWtycUlibHowUExuZlVnPT0iLCJtYWMiOiJhYWJiYzg2YTBkYTZlYTA5MDEzNDczMDc2ZjUzNmNkMWNlMGM4MTg1MTRiZjFjMmIzMjhjMWJiM2Y3ODg2ZmIyIn0%3D" />
+        <option name="value" value="eyJpdiI6IjVcLzQ2M3R5bitVWFd1Nkh1b3BEUDZRPT0iLCJ2YWx1ZSI6InhYbnB4d281N2kyQm5LaFFVXC9OZnZNV05KcjFpMFwvYkZWZFRucVF6aWFSZ2hnRkN6WUNtSHRQTks5cnlXQ1wvQzJJVjhQVW9kMDJkSHcxUmo4eG9GQlRnPT0iLCJtYWMiOiJkMTdiZmI0YWI4NzJmYWYxMjkwZWU0MGY5ZGMyOTMwZWRjZTgyY2I5Nzk5ZDljYjg0MTZkZjM0MzAyZGNhNzk3In0%3D" />
       </Biscuit>
     </list>
   </option>
-  <option name="httpMethod" value="GET" />
+  <option name="httpMethod" value="DELETE" />
   <option name="urlBase" value="http://apirestful.lar" />
-  <option name="urlPath" value="/manufacturers" />
+  <option name="urlPath" value="/manufacturers/17" />
   <option name="headers">
     <list>
       <KeyValuePair>
