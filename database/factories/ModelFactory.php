@@ -26,7 +26,6 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 
 /* Factory Vehicle */
 $factory->define(App\Vehicle::class, function (Faker\Generator $faker) {
-    $faker = new Faker\Generator();
     $faker->addProvider(new Faker\Provider\VehicleBrandProvider($faker));
     $faker->addProvider(new Faker\Provider\VehicleModelProvider($faker));
     $brandi = $faker->brand;
@@ -35,5 +34,6 @@ $factory->define(App\Vehicle::class, function (Faker\Generator $faker) {
     return [
         'manufacturer_id' => $manufacturer[0]->id,
         'model' => $faker->modelveh($brandi),
+        'color' => $faker->ColorName(),
     ];
 });

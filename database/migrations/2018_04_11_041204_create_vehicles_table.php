@@ -17,6 +17,7 @@ class CreateVehiclesTable extends Migration
             $table->increments('id');
             $table->string('manufacturer_id');
             $table->string('model');
+            $table->string('color');
             $table->timestamps();
         });
     }

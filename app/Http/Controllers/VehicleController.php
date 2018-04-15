@@ -60,7 +60,18 @@ class VehicleController extends Controller
      */
     public function show($manufacturer_id, $vehicle_id)
     {
-        $vehicle = Vehicle::where('manufacturer_id', $manufacturer_id)->get();
+        // With Eloquent Eloquent : Slower way...
+        //$vehicle = Vehicle::where('manufacturer_id', $manufacturer_id)->
+        //                    where('id', $vehicle_id)->
+        //                    get();
+
+        //        $query = "SELECT * FROM vehicles
+        //                WHERE manufacturer_id = '" . $manufacturer_id . "' AND id = '" . $vehicle_id . "'";
+        //        $vehicle = DB::select($query);
+
+        // With Eloquent Eloquent : Slower way but elegant...
+        $matchThese = ['manufacturer_id' => $manufacturer_id, 'id' => $vehicle_id];
+        $vehicle = Vehicle::where($matchThese)->get();
 
         if ($vehicle)
             return response()->json(['data' => $vehicle], 200);
