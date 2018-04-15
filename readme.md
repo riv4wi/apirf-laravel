@@ -2,7 +2,7 @@
 Make a simple RESTful API in Laravel
 
 # How To #
-Pending to develop
+Check extended documentation in **apirf-laravel.master.pdf**
 
 # Installation guide #
 
