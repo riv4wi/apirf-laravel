@@ -1,27 +1,28 @@
 <?php
 namespace Faker\Provider;
 
-class VehicleBrandProvider extends \Faker\Provider\Base {
+class VehicleBrandProvider extends \Faker\Provider\Base
+{
 
-  protected static $brand = array(
-                                    'Chevrolet',
-                                    'Fiat',
-                                    'Renault',
-                                    'Ford',
-                                    'Toyota',
-                                    'Jeep',
-                                    'Volkswagen',
-                                    'Hyundai',
-                                    'Mitsubishi',
-                                    'Honda',
-                                    'Chrysler',
-                                    'Nissan',
-                                    'Peugeot',
-                                    'Citroën',
-                                  );
+    protected static $brand = array(
+        'Chevrolet',
+        'Fiat',
+        'Renault',
+        'Ford',
+        'Toyota',
+        'Jeep',
+        'Volkswagen',
+        'Hyundai',
+        'Mitsubishi',
+        'Honda',
+        'Chrysler',
+        'Nissan',
+        'Peugeot',
+        'Citroën',
+    );
 
-  public function brand(){
-    return static::randomElement(static::$brand);
-  }
+    public function brand(){
+        return static::randomElement(static::$brand);
+    }
+
 }
-?>
