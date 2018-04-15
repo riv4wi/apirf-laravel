@@ -79,5 +79,10 @@ class ManufacturerTableSeeder extends Seeder
             'name' => 'Nissan',
             'website' => 'nissan.com',
         ]);
+
+        Manufacturer::create([
+            'name' => 'Peugeot',
+            'website' => 'peugeot.com',
+        ]);
     }
 }

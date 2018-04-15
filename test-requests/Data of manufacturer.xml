@@ -1,0 +1,37 @@
+<RestClientRequest>
+  <option name="biscuits">
+    <list>
+      <Biscuit>
+        <option name="date" value="1523758418000" />
+        <option name="domain" value="apirestful.lar" />
+        <option name="name" value="laravel_session" />
+        <option name="path" value="/" />
+        <option name="value" value="eyJpdiI6IlM4cnBCSUtcL0UxMGFmWnl0dUlzZnhnPT0iLCJ2YWx1ZSI6Ik9NcmxLWDZYM2hIb2VMM2dLZ2NZNW5yY25zRW1FRCszZ3A4VUo4YVR4TlAya1FHYXBoeHpcL2t2cjBkSUh4NjJFT2lRRTVLZFJsUWloS1F5bCtwV05zQT09IiwibWFjIjoiYmJkYWU5YjY2OTVjMjVhNTc1MjAwZTMyNjY2OWU1YjkwY2YxMGRjOGI2NzczZWYwYTU4YjRmZTg4YjA5MWVkMyJ9" />
+      </Biscuit>
+    </list>
+  </option>
+  <option name="httpMethod" value="GET" />
+  <option name="urlBase" value="http://apirestful.lar" />
+  <option name="urlPath" value="/manufacturers/1" />
+  <option name="headers">
+    <list>
+      <KeyValuePair>
+        <option name="key" value="Accept" />
+        <option name="value" value="*/*" />
+      </KeyValuePair>
+      <KeyValuePair>
+        <option name="key" value="Cache-Control" />
+        <option name="value" value="no-cache" />
+      </KeyValuePair>
+    </list>
+  </option>
+  <option name="parameters">
+    <list />
+  </option>
+  <option name="parametersEnabled" value="true" />
+  <option name="haveTextToSend" value="false" />
+  <option name="haveFileToSend" value="false" />
+  <option name="isFileUpload" value="false" />
+  <option name="textToSend" value="" />
+  <option name="filesToSend" value="" />
+</RestClientRequest>

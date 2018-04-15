@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Manufacturer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
+/* Methods create() and edit() are not include because they are call
+to the forms to process those requests */
 
 class ManufacturerController extends Controller
 {
@@ -16,16 +20,9 @@ class ManufacturerController extends Controller
     public function index()
     {
         return response()->json(['data' => Manufacturer::all()], 200);
-    }
-
-    /**]
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        return "Creando el fabricante";     // TODO: No se incluye en la API
+        // @todo Porque no me funciona esto?
+        // $manufacturers = DB::select("SELECT * FROM manufacturers);
+        // return response()->json(['data' => $manufacturers], 200);
     }
 
     /**
@@ -58,17 +55,6 @@ class ManufacturerController extends Controller
             return response()->json(['data' => $manufacturer], 200);
         else
             return response()->json(['msg' => 'Manufacturer ' . $id . ' not found'], 404);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        return "Editando el fabricante con id $id";  // TODO: No se incluye en la API
     }
 
     /**
@@ -125,15 +111,20 @@ class ManufacturerController extends Controller
     public function destroy($id)
     {
         $manufacturer = Manufacturer::find($id);
+
         if (!$manufacturer) {
             return response()->json(['msg' => 'Manufacturer ' . $id . ' not found'], 404);
         }
 
-        $vehicles = $manufacturer->vehicles;
-        if (sizeof($vehicles) > 0) {
-            return response()->json(['msg' => 'The manufacturer can not be eliminated because it has associated vehicles. Eliminate the vehicles first'], 200);
-        }
+        // @todo It is not working in this way
+        // $manufacturer = Manufacturer::find($manufacturer_id);
+        // $vehicles = $manufacturer->vehicles;
 
+        $vehicles = DB::select("SELECT id FROM vehicles where manufacturer_id = '".$id."'");
+        if (sizeof($vehicles) > 0) {
+            return response()->json(['msg' => 'The manufacturer can not be eliminated because it has associated vehicles.
+             Eliminate the vehicles first'], 200);
+        }
         $manufacturer->delete();
         return response()->json(['msg' => 'Manufacturer ' . $id . ' eliminated'], 200);
     }

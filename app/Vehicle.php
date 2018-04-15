@@ -12,6 +12,6 @@ class Vehicle extends Model
     /* Relationship: 1 Vehicle BelongsTo 1 Manufacturer */
     public function manufacturer()
     {
-        return $this->belongsTo(Manufacturer::class,'manufacturer_id');
+        return $this->belongsTo(Manufacturer::class, 'manufacturer_id');
     }
 }

@@ -31,9 +31,9 @@ $factory->define(App\Vehicle::class, function (Faker\Generator $faker) {
     $faker->addProvider(new Faker\Provider\VehicleModelProvider($faker));
     $brandi = $faker->brand;
 
-    $manufacturer_id = DB::select("SELECT id FROM manufacturers where name = '".$brandi."'");
+    $manufacturer = DB::select("SELECT id FROM manufacturers where name = '".$brandi."'");
     return [
-        'manufacturer_id' => $manufacturer_id[0]->id,
+        'manufacturer_id' => $manufacturer[0]->id,
         'model' => $faker->modelveh($brandi),
     ];
 });

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Manufacturer;
 use App\Vehicle;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class VehicleController extends Controller
 {
@@ -16,9 +17,11 @@ class VehicleController extends Controller
      */
     public function index($manufacturer_id)
     {
-        $manufacturer = Manufacturer::find($manufacturer_id);
+        $vehicles = DB::select("SELECT * FROM vehicles where manufacturer_id = '".$manufacturer_id."'");
 
-        $vehicles = $manufacturer->vehicles;
+        // @todo It is not working in this way
+        //  $manufacturer = Manufacturer::find($manufacturer_id);
+        //  $vehicles = $manufacturer->vehicles;
 
         if ($vehicles)
             return response()->json(['data' => $vehicles], 200);

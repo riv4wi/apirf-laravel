@@ -1,0 +1,351 @@
+{
+	"info": {
+		"_postman_id": "b4f7d0ec-dd34-457c-8661-ee335c421310",
+		"name": "apirf.lar",
+		"description": "# Introduction\nWhat does your API do\nThis API is a test for learn more about develop of APIs\n\n# Overview\nNothing yet\n\n# Authentication\nWhat is the preferred way of using the API?\n\n# Error Codes\nWhat errors and status codes can a user expect?\n\n# Rate limit\nIs there a limit to the number of requests an user can send?",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "List of vehicles",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://apirestful.lar/manufacturers/2/vehicles",
+					"protocol": "http",
+					"host": [
+						"apirestful",
+						"lar"
+					],
+					"path": [
+						"manufacturers",
+						"2",
+						"vehicles"
+					]
+				},
+				"description": "Lista de vehiculos del fabricante"
+			},
+			"response": []
+		},
+		{
+			"name": "Add vehicle",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "model",
+							"value": "Kwd",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "color",
+							"value": "White",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://lumen.api/api/manufacturers/1/vehicles",
+					"protocol": "http",
+					"host": [
+						"lumen",
+						"api"
+					],
+					"path": [
+						"api",
+						"manufacturers",
+						"1",
+						"vehicles"
+					]
+				},
+				"description": "http://restful.api/manufacturers"
+			},
+			"response": []
+		},
+		{
+			"name": "Data of a vehicle",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://lumen.api/api/manufacturers/1/vehicles/3",
+					"protocol": "http",
+					"host": [
+						"lumen",
+						"api"
+					],
+					"path": [
+						"api",
+						"manufacturers",
+						"1",
+						"vehicles",
+						"3"
+					]
+				},
+				"description": "http://restful.api/manufacturers/1/vehicles/3"
+			},
+			"response": []
+		},
+		{
+			"name": "List of manufacturers",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://apirestful.lar/manufacturers",
+					"protocol": "http",
+					"host": [
+						"apirestful",
+						"lar"
+					],
+					"path": [
+						"manufacturers"
+					]
+				},
+				"description": "List of manufacturers"
+			},
+			"response": []
+		},
+		{
+			"name": "Data of manufacturer",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://apirestful.lar/manufacturers/1",
+					"protocol": "http",
+					"host": [
+						"apirestful",
+						"lar"
+					],
+					"path": [
+						"manufacturers",
+						"1"
+					]
+				},
+				"description": "Data of manufacturer"
+			},
+			"response": []
+		},
+		{
+			"name": "Add manufacturer",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Fiat",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "website",
+							"value": "fiat.com",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://apirestful.lar/manufacturers",
+					"protocol": "http",
+					"host": [
+						"apirestful",
+						"lar"
+					],
+					"path": [
+						"manufacturers"
+					]
+				},
+				"description": "http://restful.api/manufacturers"
+			},
+			"response": []
+		},
+		{
+			"name": "Edit a manufacturer",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "123",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "luis@gmail.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "Renault",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "website",
+							"value": "renault.com",
+							"description": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://apirestful.lar/manufacturers/1",
+					"protocol": "http",
+					"host": [
+						"apirestful",
+						"lar"
+					],
+					"path": [
+						"manufacturers",
+						"1"
+					]
+				},
+				"description": "http://restful.api/manufacturers/2"
+			},
+			"response": []
+		},
+		{
+			"name": "Edit a vehicle",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "color",
+							"value": "Lime",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "model",
+							"value": "Quia",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://restful.api/manufacturers/1/vehicles/6",
+					"protocol": "http",
+					"host": [
+						"restful",
+						"api"
+					],
+					"path": [
+						"manufacturers",
+						"1",
+						"vehicles",
+						"6"
+					]
+				},
+				"description": "http://restful.api/manufacturers/1/vehicles/3"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a vehicle",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://restful.api/manufacturers/3/vehicles/2",
+					"protocol": "http",
+					"host": [
+						"restful",
+						"api"
+					],
+					"path": [
+						"manufacturers",
+						"3",
+						"vehicles",
+						"2"
+					]
+				},
+				"description": "http://restful.api/manufacturers/2/vehicles/9"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a manufacturer",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://apirestful.lar/manufacturers/14",
+					"protocol": "http",
+					"host": [
+						"apirestful",
+						"lar"
+					],
+					"path": [
+						"manufacturers",
+						"14"
+					]
+				},
+				"description": "http://restful.api/manufacturers/3"
+			},
+			"response": []
+		}
+	]
+}
