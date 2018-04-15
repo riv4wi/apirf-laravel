@@ -31,5 +31,3 @@ class VehicleModelProvider extends \Faker\Provider\Base
     }
 
 }
-
-?>
