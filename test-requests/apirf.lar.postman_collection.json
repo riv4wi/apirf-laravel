@@ -89,7 +89,7 @@
 				"header": [],
 				"body": {},
 				"url": {
-					"raw": "http://apirf.lar/manufacturers/1/vehicles/12",
+					"raw": "http://apirf.lar/manufacturers/1/vehicles/10",
 					"protocol": "http",
 					"host": [
 						"apirf",
@@ -99,7 +99,7 @@
 						"manufacturers",
 						"1",
 						"vehicles",
-						"12"
+						"10"
 					]
 				},
 				"description": "http://restful.api/manufacturers/1/vehicles/3"
@@ -165,7 +165,11 @@
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/x-www-form-urlencoded"
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": " application/json"
 					}
 				],
 				"body": {
@@ -173,16 +177,15 @@
 					"urlencoded": [
 						{
 							"key": "name",
-							"value": "Fiat",
+							"value": "Bentley",
 							"description": "",
 							"type": "text"
 						},
 						{
 							"key": "website",
-							"value": "fiat.com",
+							"value": "bentley.com",
 							"description": "",
-							"type": "text",
-							"disabled": true
+							"type": "text"
 						}
 					]
 				},
@@ -211,7 +214,11 @@
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/x-www-form-urlencoded"
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
 					}
 				],
 				"body": {
@@ -219,14 +226,13 @@
 					"urlencoded": [
 						{
 							"key": "name",
-							"value": "Renault",
+							"value": "Chevrolet",
 							"description": "",
-							"type": "text",
-							"disabled": true
+							"type": "text"
 						},
 						{
 							"key": "website",
-							"value": "renault.com",
+							"value": "chevrolet.com",
 							"description": "",
 							"type": "text"
 						}
@@ -255,7 +261,11 @@
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/x-www-form-urlencoded"
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
 					}
 				],
 				"body": {
@@ -263,20 +273,20 @@
 					"urlencoded": [
 						{
 							"key": "color",
-							"value": "Lime",
+							"value": "Negro",
 							"description": "",
 							"type": "text"
 						},
 						{
 							"key": "model",
-							"value": "Quia",
+							"value": "Optra",
 							"description": "",
 							"type": "text"
 						}
 					]
 				},
 				"url": {
-					"raw": "http://apirf.lar/manufacturers/1/vehicles/12",
+					"raw": "http://apirf.lar/manufacturers/1/vehicles/10",
 					"protocol": "http",
 					"host": [
 						"apirf",
@@ -286,7 +296,7 @@
 						"manufacturers",
 						"1",
 						"vehicles",
-						"12"
+						"10"
 					]
 				},
 				"description": "http://restful.api/manufacturers/1/vehicles/3"
@@ -324,7 +334,7 @@
 				"header": [],
 				"body": {},
 				"url": {
-					"raw": "http://apirf.lar/manufacturers/15",
+					"raw": "http://apirf.lar/manufacturers/18",
 					"protocol": "http",
 					"host": [
 						"apirf",
@@ -332,7 +342,7 @@
 					],
 					"path": [
 						"manufacturers",
-						"15"
+						"18"
 					]
 				},
 				"description": "http://restful.api/manufacturers/3"
