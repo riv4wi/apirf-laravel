@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Manufacturer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 
 /* Methods create() and edit() are not include because they are call
 to the forms to process those requests */
@@ -19,7 +20,6 @@ class ManufacturerController extends Controller
      */
     public function index()
     {
-        // Other way, with collection, but slower >>> return response()->json(['data' => Manufacturer::all()], 200);
          return response()->json(['data' =>  DB::select("SELECT * FROM manufacturers")], 200);
     }
 
@@ -31,12 +31,14 @@ class ManufacturerController extends Controller
      */
     public function store(Request $request)
     {
-        if (!$request->get('name') || !$request->get('website'))
-            return response()->json(['msg' => 'Data not completed'], 422);
-        else {
-            $manufacturer = Manufacturer::create($request->all());
-            return response()->json(['data' => $manufacturer, 'msg' => 'Manufacturer created'], 201);
-        }
+
+        $rules = array('name' => 'required', 'website' => 'required');
+        
+        $validatedData = $request->validate($rules);
+
+        $manufacturer = Manufacturer::create($request->all());
+
+        return response()->json(['data' => $manufacturer, 'success' => array('message' => 'Manufacturer created')], 201);
     }
 
     /**
@@ -52,7 +54,8 @@ class ManufacturerController extends Controller
         if ($manufacturer)
             return response()->json(['data' => $manufacturer], 200);
         else
-            return response()->json(['msg' => 'Manufacturer ' . $id . ' not found'], 404);
+            return response()->json(['error'=>array('message' => 'Manufacturer ' . $id . ' not found')], 404);            
+
     }
 
     /**
@@ -60,44 +63,24 @@ class ManufacturerController extends Controller
      *
      * @param  \Illuminate\Http\Request $request
      * @param  int $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\Responsed
      */
     public function update(Request $request, $id)
     {
-        $method = $request->method();
+
+        $data = $request->all();
+
         $manufacturer = Manufacturer::find($id);
-        if (!$manufacturer) {
-            return response()->json(['msg' => 'Manufacturer ' . $id . ' not found'], 404);
+        if (is_null($manufacturer)){
+            return response()->json(['error'=>array('message' => 'Manufacturer ' . $id . ' not found')], 404);    
         }
 
-        $name = $request->get('name');
-        $website = $request->get('website');
+        $manufacturer->fill($data);
+        $manufacturer->save();
+        return response()->json(['success' => array('message' => 'Manufacturer \'s record ' . $id . ' edited')], 200);
 
-        /* Method PATCH */
-        if ($method === 'PATCH') {
-            /* Update name */
-            if ($name != null && $name != '') {
-                $manufacturer->name = $name;
-            }
-
-            /* Update website */
-            if ($website != null && $website != '') {
-                $manufacturer->website = $website;
-            }
-
-            $manufacturer->save();
-            return response()->json(['msg' => 'Manufacturer \'s record ' . $id . ' edit with PATCH'], 200);
-        }
-
-        /* Method PUT */
-        if (!$name || !$website) {
-            return response()->json(['msg' => 'Data not completed'], 422);
-        } else {
-            $manufacturer->name = $name;
-            $manufacturer->website = $website;
-            $manufacturer->save();
-            return response()->json(['msg' => 'Manufacturer \'s record ' . $id . ' edit with PUT'], 200);
-        }
+        // @todo What happens if all input fields are empty?... 
+        // Is fine that? Is there some better validation?
     }
 
     /**
@@ -109,18 +92,18 @@ class ManufacturerController extends Controller
     public function destroy($id)
     {
         $manufacturer = Manufacturer::find($id);
-
-        if (!$manufacturer) {
-            return response()->json(['msg' => 'Manufacturer ' . $id . ' not found'], 404);
+        if (is_null($manufacturer)){
+            return response()->json(['error'=>array('message' => 'Manufacturer ' . $id . ' not found')], 404);    
         }
 
-        // Other way, with collection, but slower >>> $vehicles = $manufacturer->vehicle;
-        $vehicles = DB::select("SELECT id FROM vehicles where manufacturer_id = '".$id."'");
+        $vehicles = DB::select("SELECT id FROM vehicles WHERE manufacturer_id = '".$id."'");
         if (sizeof($vehicles) > 0) {
-            return response()->json(['msg' => 'The manufacturer can not be eliminated because it has associated vehicles.
+            return response()->json(['message' => 'The manufacturer can not be eliminated because it has associated vehicles.
              Eliminate the vehicles first'], 200);
         }
-        $manufacturer->delete();
-        return response()->json(['msg' => 'Manufacturer ' . $id . ' eliminated'], 200);
+
+        Manufacturer::destroy($id);
+        
+        return response()->json(['success' => array('message' => 'Manufacturer ' . $id . ' deleted')], 200);
     }
 }
