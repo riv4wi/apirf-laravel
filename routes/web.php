@@ -15,5 +15,3 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('manufacturers', 'ManufacturerController');
-Route::resource('manufacturers.vehicles', 'VehicleController');
