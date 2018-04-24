@@ -17,8 +17,13 @@ class UserTableSeeder extends Seeder
             'email'			=> 'pp@gmail.com',
             'role'		 	=> 'admin',
             'password'      => bcrypt('123'),
+            'locale'        => 'en_US',
         ]);
 
-        factory(App\User::class, 10)->create();
+        factory(App\User::class, 'es_VE', 20)->create();
+        factory(App\User::class, 'pt_BR', 20)->create();
+        factory(App\User::class, 'it_IT', 20)->create();
+        factory(App\User::class, 'ar_SA', 20)->create();
+        factory(App\User::class, 20)->create();
     }
 }

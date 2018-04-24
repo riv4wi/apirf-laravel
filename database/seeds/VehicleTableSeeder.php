@@ -11,6 +11,7 @@ class VehicleTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Vehicle::class, 100)->create();
+        factory(App\Vehicle::class, 'ar_SA', 20)->create();
+        factory(App\Vehicle::class, 20)->create();
     }
 }

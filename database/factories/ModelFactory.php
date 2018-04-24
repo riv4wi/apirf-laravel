@@ -11,9 +11,12 @@
 |
 */
 
+/*--------------------------------------------------------------------------------*/
+/* USERS                                                                          */
+/*--------------------------------------------------------------------------------*/
+
 /* Factory User */
 $factory->define(App\User::class, function (Faker\Generator $faker) {
-    $faker = Faker\Factory::create('es_ES');  // Init Faker in spanish mode
     return [
         'first_name' => $faker->firstName('male' | 'female'),
         'last_name' => $faker->lastName,
@@ -21,6 +24,80 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'role' => $faker->randomElement(['client', 'operator', 'admin']),
         'password' => bcrypt(str_random(10)),
         'remember_token' => str_random(10),
+        'locale' => 'en_US',
+    ];
+});
+
+/* Factory User */
+$factory->defineAs(App\User::class, 'es_VE', function (Faker\Generator $faker) {
+    $faker = Faker\Factory::create('es_VE');  // Init Faker in lang mode
+    return [
+        'first_name' => $faker->firstName('male' | 'female'),
+        'last_name' => $faker->lastName,
+        'email' => $faker->unique()->safeEmail,
+        'role' => $faker->randomElement(['client', 'operator', 'admin']),
+        'password' => bcrypt(str_random(10)),
+        'remember_token' => str_random(10),
+        'locale' => 'es_VE',
+    ];
+});
+
+/* Factory User */
+$factory->defineAs(App\User::class, 'pt_BR', function (Faker\Generator $faker) {
+    $faker = Faker\Factory::create('pt_BR');  // Init Faker in lang mode
+    return [
+        'first_name' => $faker->firstName('male' | 'female'),
+        'last_name' => $faker->lastName,
+        'email' => $faker->unique()->safeEmail,
+        'role' => $faker->randomElement(['client', 'operator', 'admin']),
+        'password' => bcrypt(str_random(10)),
+        'remember_token' => str_random(10),
+        'locale' => 'pt_BR',
+    ];
+});
+
+/* Factory User */
+$factory->defineAs(App\User::class, 'it_IT', function (Faker\Generator $faker) {
+    $faker = Faker\Factory::create('it_IT');  // Init Faker in lang mode
+    return [
+        'first_name' => $faker->firstName('male' | 'female'),
+        'last_name' => $faker->lastName,
+        'email' => $faker->unique()->safeEmail,
+        'role' => $faker->randomElement(['client', 'operator', 'admin']),
+        'password' => bcrypt(str_random(10)),
+        'remember_token' => str_random(10),
+        'locale' => 'it_IT',
+    ];
+});
+
+/* Factory User */
+$factory->defineAs(App\User::class, 'ar_SA', function (Faker\Generator $faker) {
+    $faker = Faker\Factory::create('ar_SA');  // Init Faker in lang mode
+    return [
+        'first_name' => $faker->firstName('male' | 'female'),
+        'last_name' => $faker->lastName,
+        'email' => $faker->unique()->safeEmail,
+        'role' => $faker->randomElement(['client', 'operator', 'admin']),
+        'password' => bcrypt(str_random(10)),
+        'remember_token' => str_random(10),
+        'locale' => 'ar_SA',
+    ];
+});
+/*--------------------------------------------------------------------------------*/
+/* VEHICLES                                                                       */
+/*--------------------------------------------------------------------------------*/
+
+/* Factory Vehicle */
+$factory->defineAs(App\Vehicle::class, 'ar_SA', function (Faker\Generator $faker) {
+    $faker = Faker\Factory::create('ar_SA');  // Init Faker in lang mode
+    $faker->addProvider(new Faker\Provider\VehicleBrandProvider($faker));
+    $faker->addProvider(new Faker\Provider\VehicleModelProvider($faker));
+    $brandi = $faker->brand;
+    $manufacturer = DB::select("SELECT id FROM manufacturers where name = '".$brandi."'");
+    return [
+        'manufacturer_id' => $manufacturer[0]->id,
+        'model' => $faker->modelveh($brandi),
+        'color' => $faker->ColorName(),
     ];
 });
 
@@ -29,7 +106,6 @@ $factory->define(App\Vehicle::class, function (Faker\Generator $faker) {
     $faker->addProvider(new Faker\Provider\VehicleBrandProvider($faker));
     $faker->addProvider(new Faker\Provider\VehicleModelProvider($faker));
     $brandi = $faker->brand;
-
     $manufacturer = DB::select("SELECT id FROM manufacturers where name = '".$brandi."'");
     return [
         'manufacturer_id' => $manufacturer[0]->id,
