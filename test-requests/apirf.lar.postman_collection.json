@@ -1,8 +1,8 @@
 {
 	"info": {
-		"_postman_id": "b4f7d0ec-dd34-457c-8661-ee335c421310",
+		"_postman_id": "ecd6c24e-6a1e-43ef-be1b-e435ac9395d6",
 		"name": "apirf.lar",
-		"description": "# Introduction\nWhat does your API do\nThis API is a test for learn more about develop of APIs\n\n# Overview\nNothing yet\n\n# Authentication\nWhat is the preferred way of using the API?\n\n# Error Codes\nWhat errors and status codes can a user expect?\n\n# Rate limit\nIs there a limit to the number of requests an user can send?",
+		"description": "# What about this?\nThis API, is a simple exercise of the development of an API in Laravel. As a business logic, 2 entities are managed: Manufacturer and vehicle. There is more information (in spanish) in the document apirf-laravel.master.pdf\n\nThe API has support for 5 example languages, Arabic (ar), Spanish (sp), Italian (it), Brazilian Portuguese (pt-BR) and English (en). To select the language, you must pass the Accept-Language header with the value of the desired language",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -13,22 +13,39 @@
 					"type": "noauth"
 				},
 				"method": "GET",
-				"header": [],
-				"body": {},
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "sp"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
-					"raw": "http://apirf.lar/manufacturers/1/vehicles",
+					"raw": "http://apirf.lar/api/manufacturers/24/vehicles",
 					"protocol": "http",
 					"host": [
 						"apirf",
 						"lar"
 					],
 					"path": [
+						"api",
 						"manufacturers",
-						"1",
+						"24",
 						"vehicles"
 					]
 				},
-				"description": "Lista de vehiculos del fabricante"
+				"description": "List of vehicles of a manufacturer in stock. The manufacturer's code must be passed as a parameter"
 			},
 			"response": []
 		},
@@ -42,7 +59,15 @@
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/x-www-form-urlencoded"
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "ar"
 					}
 				],
 				"body": {
@@ -50,32 +75,31 @@
 					"urlencoded": [
 						{
 							"key": "model",
-							"value": "Kwd",
-							"description": "",
+							"value": "توسان",
 							"type": "text"
 						},
 						{
 							"key": "color",
-							"value": "White",
-							"description": "",
+							"value": "ازرق داكن",
 							"type": "text"
 						}
 					]
 				},
 				"url": {
-					"raw": "http://apirf.lar/manufacturers/1/vehicles",
+					"raw": "http://apirf.lar/api/manufacturers/18/vehicles",
 					"protocol": "http",
 					"host": [
 						"apirf",
 						"lar"
 					],
 					"path": [
+						"api",
 						"manufacturers",
-						"1",
+						"18",
 						"vehicles"
 					]
 				},
-				"description": "http://restful.api/manufacturers"
+				"description": "Add a vehicle to stock. The manufacturer's code must be passed as a parameter"
 			},
 			"response": []
 		},
@@ -86,23 +110,32 @@
 					"type": "noauth"
 				},
 				"method": "GET",
-				"header": [],
-				"body": {},
+				"header": [
+					{
+						"key": "Accept-Language",
+						"value": "ar"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
-					"raw": "http://apirf.lar/manufacturers/1/vehicles/10",
+					"raw": "http://apirf.lar/api/manufacturers/24/vehicles/",
 					"protocol": "http",
 					"host": [
 						"apirf",
 						"lar"
 					],
 					"path": [
+						"api",
 						"manufacturers",
-						"1",
+						"24",
 						"vehicles",
-						"10"
+						""
 					]
 				},
-				"description": "http://restful.api/manufacturers/1/vehicles/3"
+				"description": "Data of a vehicle. It is necessary to pass as parameters, the manufacturer's code and the vehicle code"
 			},
 			"response": []
 		},
@@ -113,45 +146,71 @@
 					"type": "noauth"
 				},
 				"method": "GET",
-				"header": [],
-				"body": {},
+				"header": [
+					{
+						"key": "Accept-Language",
+						"value": "ar"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
-					"raw": "http://apirf.lar/manufacturers",
+					"raw": "http://apirf.lar/api/manufacturers",
 					"protocol": "http",
 					"host": [
 						"apirf",
 						"lar"
 					],
 					"path": [
+						"api",
 						"manufacturers"
 					]
 				},
-				"description": "List of manufacturers"
+				"description": "Shows a list of registered manufacturers"
 			},
 			"response": []
 		},
 		{
-			"name": "Data of manufacturer",
+			"name": "Data of a manufacturer",
 			"request": {
 				"auth": {
 					"type": "noauth"
 				},
 				"method": "GET",
-				"header": [],
-				"body": {},
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "ar"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
-					"raw": "http://apirf.lar/manufacturers/8",
+					"raw": "http://apirf.lar/api/manufacturers/8",
 					"protocol": "http",
 					"host": [
 						"apirf",
 						"lar"
 					],
 					"path": [
+						"api",
 						"manufacturers",
 						"8"
 					]
 				},
-				"description": "Data of manufacturer"
+				"description": "Data of a manufacturer. The manufacturer's code must be passed as a parameter"
 			},
 			"response": []
 		},
@@ -165,11 +224,15 @@
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json"
+						"value": "application/x-www-form-urlencoded"
 					},
 					{
 						"key": "Accept",
-						"value": " application/json"
+						"value": "application/json"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "ar"
 					}
 				],
 				"body": {
@@ -177,32 +240,86 @@
 					"urlencoded": [
 						{
 							"key": "name",
-							"value": "Bentley",
-							"description": "",
+							"value": "هونداي",
 							"type": "text"
 						},
 						{
 							"key": "website",
-							"value": "bentley.com",
-							"description": "",
+							"value": "hyundai.com",
 							"type": "text"
 						}
 					]
 				},
 				"url": {
-					"raw": "http://apirf.lar/manufacturers",
+					"raw": "http://apirf.lar/api/manufacturers",
 					"protocol": "http",
 					"host": [
 						"apirf",
 						"lar"
 					],
 					"path": [
+						"api",
 						"manufacturers"
 					]
 				},
-				"description": "http://restful.api/manufacturers"
+				"description": "Add a manufacturer"
 			},
-			"response": []
+			"response": [
+				{
+					"id": "1ec5e7a2-919d-41e0-aef3-093e9c91168b",
+					"name": "Add manufacturer - eg",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "ar"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "نيسان",
+									"type": "text"
+								},
+								{
+									"key": "website",
+									"value": "nissan.com",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://apirf.lar/api/manufacturers",
+							"protocol": "http",
+							"host": [
+								"apirf",
+								"lar"
+							],
+							"path": [
+								"api",
+								"manufacturers"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "",
+					"header": [],
+					"cookie": [],
+					"body": ""
+				}
+			]
 		},
 		{
 			"name": "Edit a manufacturer",
@@ -219,6 +336,10 @@
 					{
 						"key": "Accept",
 						"value": "application/json"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "pt-BR"
 					}
 				],
 				"body": {
@@ -227,30 +348,29 @@
 						{
 							"key": "name",
 							"value": "Chevrolet",
-							"description": "",
 							"type": "text"
 						},
 						{
 							"key": "website",
 							"value": "chevrolet.com",
-							"description": "",
 							"type": "text"
 						}
 					]
 				},
 				"url": {
-					"raw": "http://apirf.lar/manufacturers/1",
+					"raw": "http://apirf.lar/api/manufacturers/1",
 					"protocol": "http",
 					"host": [
 						"apirf",
 						"lar"
 					],
 					"path": [
+						"api",
 						"manufacturers",
 						"1"
 					]
 				},
-				"description": "http://restful.api/manufacturers/2"
+				"description": "Edit a manufacturer. The manufacturer's code must be passed as a parameter"
 			},
 			"response": []
 		},
@@ -274,13 +394,11 @@
 						{
 							"key": "color",
 							"value": "Negro",
-							"description": "",
 							"type": "text"
 						},
 						{
 							"key": "model",
 							"value": "Optra",
-							"description": "",
 							"type": "text"
 						}
 					]
@@ -299,7 +417,7 @@
 						"10"
 					]
 				},
-				"description": "http://restful.api/manufacturers/1/vehicles/3"
+				"description": "Edit a vehicle. It is necessary to pass as parameters, the manufacturer's code and the vehicle code"
 			},
 			"response": []
 		},
@@ -307,23 +425,32 @@
 			"name": "Delete a vehicle",
 			"request": {
 				"method": "DELETE",
-				"header": [],
-				"body": {},
+				"header": [
+					{
+						"key": "Accept-Language",
+						"value": "ar"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
-					"raw": "http://apirf.lar/manufacturers/1/vehicles/12",
+					"raw": "http://apirf.lar/api/manufacturers/1/vehicles/12",
 					"protocol": "http",
 					"host": [
 						"apirf",
 						"lar"
 					],
 					"path": [
+						"api",
 						"manufacturers",
 						"1",
 						"vehicles",
 						"12"
 					]
 				},
-				"description": "http://restful.api/manufacturers/2/vehicles/9"
+				"description": "Delete a vehicle.  It is necessary to pass as parameters, the manufacturer's code and the vehicle code"
 			},
 			"response": []
 		},
@@ -331,23 +458,54 @@
 			"name": "Delete a manufacturer",
 			"request": {
 				"method": "DELETE",
-				"header": [],
-				"body": {},
+				"header": [
+					{
+						"key": "Accept-Language",
+						"value": "sp"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
-					"raw": "http://apirf.lar/manufacturers/18",
+					"raw": "http://apirf.lar/api/manufacturers/1",
 					"protocol": "http",
 					"host": [
 						"apirf",
 						"lar"
 					],
 					"path": [
+						"api",
 						"manufacturers",
-						"18"
+						"1"
 					]
 				},
-				"description": "http://restful.api/manufacturers/3"
+				"description": "Delete a manufacturer. The manufacturer's code must be passed as a parameter"
 			},
 			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "e505fc8a-f8ee-4016-b324-f90844690b92",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "95e9181a-eb10-448a-ad60-b0a4f272cb4f",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
 		}
 	]
 }
