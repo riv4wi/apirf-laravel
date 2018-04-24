@@ -19,9 +19,12 @@ class VehicleModelProvider extends \Faker\Provider\Base
         "Mitsubishi" => array('Lancer', 'Montero', 'Signo', 'L-300', 'MF', 'Galant', 'Panel', 'MX', 'Eclipse'),
         "Honda" => array('Civic', 'Accord', 'Fit', 'CR-V', 'Odyssey', 'Pilot', 'Prelude', 'CRX', 'Integra', 'Legend'),
         "Chrysler" => array('Neon', 'Sebring', 'Caliber', '300 C', 'Grand Caravan', 'Town & Country', 'Le baron', 'Spirit', 'Stratus'),
-        "Nissan" => array('March', 'Kicks', 'Frontier ', 'Sentra', 'Tiida', 'Pathfinder', 'X-Trail', '350Z', 'Patrol', 'Almera', 'Murano'),
         "Peugeot" => array('206', '207', '307', '407', 'Expert', '205', '306', '605'),
         "Citroën" => array('C3 Aircross', 'C4 Cactus', 'C4 Grand Picasso', 'C4 Lounge', 'C4 Picasso', 'C-Elysée'),
+        "Nissan" => array('March', 'Kicks', 'Frontier ', 'Sentra', 'Tiida', 'Pathfinder', 'X-Trail', '350Z', 'Patrol', 'Almera', 'Murano'),
+        "نيسان" => array('نيسان نافارا', 'التيما'),
+        "بورش" => array('بورش باناميرا GTR'),
+        "Maserati" => array('Ghibli', 'Levante', 'Quattroporte', 'GranTurismo', 'GranCabrio'),
     );
 
 

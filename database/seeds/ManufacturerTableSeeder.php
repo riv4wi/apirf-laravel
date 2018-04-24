@@ -76,11 +76,6 @@ class ManufacturerTableSeeder extends Seeder
         ]);
 
         Manufacturer::create([
-            'name' => 'Nissan',
-            'website' => 'nissan.com',
-        ]);
-
-        Manufacturer::create([
             'name' => 'Peugeot',
             'website' => 'peugeot.com',
         ]);
@@ -89,5 +84,26 @@ class ManufacturerTableSeeder extends Seeder
             'name' => 'Citroën',
             'website' => 'citroen.com',
         ]);
+
+        Manufacturer::create([
+            'name' => 'Nissan',
+            'website' => 'nissan.com',
+        ]);
+
+        Manufacturer::create([
+            'name' => 'نيسان',
+            'website' => 'nissan.com',
+        ]);
+
+        Manufacturer::create([
+            'name' => 'بورش',
+            'website' => 'porsche.com',
+        ]);
+
+        Manufacturer::create([
+            'name' => 'Maserati',
+            'website' => 'maserati.com',
+        ]);
+
     }
 }
