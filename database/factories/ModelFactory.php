@@ -15,7 +15,7 @@
 /* USERS                                                                          */
 /*--------------------------------------------------------------------------------*/
 
-/* Factory User */
+/* Factory User 'en_US' by default */
 $factory->define(App\User::class, function (Faker\Generator $faker) {
     return [
         'first_name' => $faker->firstName('male' | 'female'),
@@ -28,7 +28,7 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     ];
 });
 
-/* Factory User */
+/* Factory User 'es_VE' */
 $factory->defineAs(App\User::class, 'es_VE', function (Faker\Generator $faker) {
     $faker = Faker\Factory::create('es_VE');  // Init Faker in lang mode
     return [
@@ -42,7 +42,7 @@ $factory->defineAs(App\User::class, 'es_VE', function (Faker\Generator $faker) {
     ];
 });
 
-/* Factory User */
+/* Factory User 'pt_BR' */
 $factory->defineAs(App\User::class, 'pt_BR', function (Faker\Generator $faker) {
     $faker = Faker\Factory::create('pt_BR');  // Init Faker in lang mode
     return [
@@ -56,7 +56,7 @@ $factory->defineAs(App\User::class, 'pt_BR', function (Faker\Generator $faker) {
     ];
 });
 
-/* Factory User */
+/* Factory User 'it_IT' */
 $factory->defineAs(App\User::class, 'it_IT', function (Faker\Generator $faker) {
     $faker = Faker\Factory::create('it_IT');  // Init Faker in lang mode
     return [
@@ -70,7 +70,7 @@ $factory->defineAs(App\User::class, 'it_IT', function (Faker\Generator $faker) {
     ];
 });
 
-/* Factory User */
+/* Factory User 'ar_SA'*/
 $factory->defineAs(App\User::class, 'ar_SA', function (Faker\Generator $faker) {
     $faker = Faker\Factory::create('ar_SA');  // Init Faker in lang mode
     return [
@@ -83,11 +83,13 @@ $factory->defineAs(App\User::class, 'ar_SA', function (Faker\Generator $faker) {
         'locale' => 'ar_SA',
     ];
 });
+
+
 /*--------------------------------------------------------------------------------*/
 /* VEHICLES                                                                       */
 /*--------------------------------------------------------------------------------*/
 
-/* Factory Vehicle */
+/* Factory Vehicle 'ar_SA'*/
 $factory->defineAs(App\Vehicle::class, 'ar_SA', function (Faker\Generator $faker) {
     $faker = Faker\Factory::create('ar_SA');  // Init Faker in lang mode
     $faker->addProvider(new Faker\Provider\VehicleBrandProvider($faker));
@@ -101,7 +103,7 @@ $factory->defineAs(App\Vehicle::class, 'ar_SA', function (Faker\Generator $faker
     ];
 });
 
-/* Factory Vehicle */
+/* Factory Vehicle 'en_US' by defautl */
 $factory->define(App\Vehicle::class, function (Faker\Generator $faker) {
     $faker->addProvider(new Faker\Provider\VehicleBrandProvider($faker));
     $faker->addProvider(new Faker\Provider\VehicleModelProvider($faker));
