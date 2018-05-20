@@ -15,7 +15,6 @@ to the forms to process those requests */
 class ManufacturerController extends Controller
 {
 
-
     /**
      * Display a listing of the resource.
      *
@@ -36,7 +35,6 @@ class ManufacturerController extends Controller
      */
     public function store(Request $request)
     {
-
         $rules = array('name' => 'required', 'website' => 'required');
         
         $validatedData = $request->validate($rules);
@@ -44,8 +42,6 @@ class ManufacturerController extends Controller
         $manufacturer = Manufacturer::create($request->all());
 
         return response()->json(['data' => $manufacturer, 'success' => array('message' => Lang::get('general.manufacturer_created'))], 201);
-
-    // @todo Algo sucede con la traduccion arabe que en este metodo no aparecen los caracteres correctamente en el mensaje de success
     }
 
     /**
@@ -74,7 +70,6 @@ class ManufacturerController extends Controller
      */
     public function update(Request $request, $id)
     {
-
         $data = $request->all();
 
         $manufacturer = Manufacturer::find($id);
@@ -109,8 +104,7 @@ class ManufacturerController extends Controller
         }
 
         Manufacturer::destroy($id);
-        
-        return response()->json(['success' => array('message' => Lang::get('general.manufacturer_deleted',['name' => $manufacturer]))], 200); 
+        return response()->json(['success' => array('message' => Lang::get('general.manufacturer_deleted',['name' => $manufacturer]))], 200);
     }
-    
+
 }
