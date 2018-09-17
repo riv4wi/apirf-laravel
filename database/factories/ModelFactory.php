@@ -100,6 +100,7 @@ $factory->defineAs(App\Vehicle::class, 'ar_SA', function (Faker\Generator $faker
         'manufacturer_id' => $manufacturer[0]->id,
         'model' => $faker->modelveh($brandi),
         'color' => $faker->ColorName(),
+        'year' => $faker->numberBetween(2010, 2018),
     ];
 });
 
@@ -113,5 +114,35 @@ $factory->define(App\Vehicle::class, function (Faker\Generator $faker) {
         'manufacturer_id' => $manufacturer[0]->id,
         'model' => $faker->modelveh($brandi),
         'color' => $faker->ColorName(),
+        'year' => $faker->numberBetween(2010, 2018),
     ];
 });
+
+
+/* Factory Identifier */
+$factory->define(App\Identifier::class, function (Faker\Generator $faker) {
+    $faker = Faker\Factory::create('ar_SA'); 
+    $faker2 = Faker\Factory::create('pl_PL');
+    $available_vehicles = DB::select("Select vehicles.id from vehicles where vehicles.id not in (select vehicles.id from vehicles, identifiers where identifiers.vehicle_id = vehicles.id)");
+    $vehicle_selected_id = array_rand($available_vehicles);
+//    print_r($vehicle_selected_id);
+//    exit;
+    return [
+        'vehicle_id' => $vehicle_selected_id,
+        'plate' =>  $faker->isbn10,
+        'engine_serial' => $faker->bankAccountNumber(),
+        'serial_car_body' => $faker2->pesel(),
+    ];
+});
+
+/*SELECT count(id) FROM vehicles;
+
+SELECT vehicles.id FROM vehicles LEFT JOIN identifiers ON vehicles.id=identifiers.vehicle_id where identifiers.vehicle_id is null;
+-- Supongamos t1 = Tabla Origen, t2 = Tabla donde están los registros que no queremos.
+-- Trabajaremos con el campo id pero lo pueden substituir por la clave o claves de sus tablas
+
+-- t2: identifiers
+-- t1: vehicles
+
+
+Select vehicles.id from vehicles where vehicles.id not in (select vehicles.id from vehicles, identifiers where identifiers.vehicle_id = vehicles.id);*/
