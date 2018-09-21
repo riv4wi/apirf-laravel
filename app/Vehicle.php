@@ -18,6 +18,6 @@ class Vehicle extends Model
     /* Relationship: 1 Identifier hasMany vehicles */
     public function identifier()
     {
-        return $this->hasMany(Identifier::class, 'identifier_id');
+        return $this->hasOne(Identifier::class);
     }
 }
