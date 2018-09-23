@@ -13,8 +13,6 @@ class SaleTableSeeder extends Seeder
     {
         $vehicles = DB::select("select vehicle_id from identifiers");
         foreach ($vehicles as $vehicle) {
-//            print_r($vehicle->vehicle_id);
-//            exit;
             factory(App\Sale::class)->create([
                 'vehicle_id' => $vehicle->vehicle_id,
             ]);

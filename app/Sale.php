@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Sale extends Model
 {
+    public $timestamps = false;
     protected $table = 'sales';
     protected $fillable = array('vehicle_id', 'cost', 'pvp', 'tax', 'seller_id', 'buyer_id', 'sold_on');
 
