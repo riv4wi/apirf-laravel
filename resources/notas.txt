@@ -1,0 +1,21 @@
+--- POSIBLES GRAFICOS A CREAR ---
+Top 10 modelos mas vendidos (torta)
+Marcas mas vendidas con sus unidades (columnas)
+Comparativa de Utilidades del anio anterior y el presente por provincias (columnas combinadas)
+Ventas por mes y modelo de auto (Spline with plot bands)
+Colores mas vendidos (3D donut)
+
+
+REPASAR NUEVAMENTE LOS CONCEPTOS API REST
+/1. Crear las tablas y campos (Crear las migraciones)
+/2. Crear los seeders
+
+--- Graficos ---
+Area-spline
+Stacked percentage column
+Pie chart
+Column, line and pie
+Responsive chart
+Styled mode column
+
+
