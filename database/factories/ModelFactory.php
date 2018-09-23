@@ -100,6 +100,7 @@ $factory->defineAs(App\Vehicle::class, 'ar_SA', function (Faker\Generator $faker
         'manufacturer_id' => $manufacturer[0]->id,
         'model' => $faker->modelveh($brandi),
         'color' => $faker->ColorName(),
+        'year' => $faker->numberBetween(2010, 2018),
     ];
 });
 
@@ -113,5 +114,7 @@ $factory->define(App\Vehicle::class, function (Faker\Generator $faker) {
         'manufacturer_id' => $manufacturer[0]->id,
         'model' => $faker->modelveh($brandi),
         'color' => $faker->ColorName(),
+        'year' => $faker->numberBetween(2010, 2018),
     ];
 });
+
