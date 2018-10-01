@@ -13,10 +13,11 @@ use Illuminate\Http\Request;
 |
 */
 
-/*Route::middleware('auth:api')->get('/user', function (Request $request) {
+Route::middleware('auth:api')->get('/user', function (Request $request) {
+    print_r("ESTO ES UNA PRUEBA");
     return $request->user();
 });
-*/
+
 Route::resource('manufacturers', 'ManufacturerController');
 Route::resource('manufacturers.vehicles', 'VehicleController');
 
