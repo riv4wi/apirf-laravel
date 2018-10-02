@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->enum('role', ['client', 'operator', 'admin']);
             $table->rememberToken();
-            $table->string('locale');
+            $table->string('locale',5)->default('es_VE');
             $table->timestamps();
         });
     }
